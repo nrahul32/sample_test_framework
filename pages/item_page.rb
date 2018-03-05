@@ -13,6 +13,17 @@ module Pages
 			@driver.find_element(:class, "author").text
 		end
 
+		def select_tab(value)
+			case value
+			when 'Kindle' || 'Other Sellers'
+				@driver.find_elements(:xpath, "//span[text()='#{value}']")[1].click
+			when 'Paperback'
+				@driver.find_elements(:xpath, "//span[text()='#{value}']")[0].click
+			else
+				warn "The value should be either 'Kindle', 'Paperback' or 'Other Sellers'"
+			end
+		end
+
 		def get_editorial_reviews
 			@driver.find_element(:xpath, "//h2[contains(text(), 'Editorial Reviews')]/following-sibling::div").text
 		end
@@ -40,6 +51,7 @@ module Pages
 		def get_ebook_features
 			@driver.find_element(:xpath, "//span[contains(text(), 'eBook features')]/following-sibling::ul").text
 		end
+
 	end
 
 end

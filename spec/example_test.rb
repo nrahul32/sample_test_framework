@@ -32,13 +32,17 @@ describe "Read the details of a product from Amazon" do
       @product_details        = @item_page.get_product_details
       @kindle_amount          = @item_page.get_kindle_amount
       @paperback_amount_range = @item_page.get_paperback_amount_range
+
+      # switch to Kindle tab and then get details from that page, then reswitch tab
+      @item_page.select_tab("Kindle")
       @get_ebook_features     = @item_page.get_ebook_features
+      @item_page.select_tab("Paperback")
 
       # print title and author on the screen
       puts "Title is: #{@title}"
       puts "- #{@author}"
 
-      # the above variables can also be used to make validations as below
+      # the above variables can also be used to make validations
       expect(@product_details).to include('Language')
       expect(@kindle_amount).to include('$')
     end
