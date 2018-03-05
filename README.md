@@ -5,12 +5,17 @@ I have used the Page Object model. All the locators and operations to be perform
 The spec currently has 1 test that searches for an item in Amazon.com and reads most of the details from the page. The method names used are self explainatory. I have added 2 navigations - one to transition to the item page and other to switch tabs(kindle, paperback). I have added a few assertions using includes and equality operators.
 
 Language used: Ruby
+
 Gems required: RSpec
 
 Command to run: rspec spec/example_test.rb 
+
 Output:
+
 Title is: Catalog It!: A Guide to Cataloging School Library Materials, 3rd Edition
-- Allison G. Kaplan (Author)
+
+By: Allison G. Kaplan (Author)
+
 .
 
 Finished in 31.62 seconds (files took 0.46996 seconds to load)

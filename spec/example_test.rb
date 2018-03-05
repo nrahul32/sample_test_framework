@@ -42,9 +42,9 @@ describe "Read the details of a product from Amazon" do
       @get_ebook_features     = @item_page.get_ebook_features
       @item_page.select_tab("Paperback")
 
-      # print title and author on the screen
+      # printing title and author on the screen
       puts "Title is: #{@title}"
-      puts "- #{@author}"
+      puts "By: #{@author}"
 
       # the above variables can also be used to make validations
       expect(@product_details).to include('Language')
