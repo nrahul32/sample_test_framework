@@ -5,6 +5,7 @@ module Pages
 			@driver = driver
 		end
 
+		# List of operations
 		def navigate_to_homepage
 			@driver.navigate.to 'https://www.amazon.com/'
 		end

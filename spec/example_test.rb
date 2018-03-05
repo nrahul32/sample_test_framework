@@ -28,6 +28,7 @@ describe "Read the details of a product from Amazon" do
       # get all the details and store in the variables
       @title                  = @item_page.get_title
       @author                 = @item_page.get_author
+      @rating                 = @item_page.get_star_rating
       @editorial_reviews      = @item_page.get_editorial_reviews
       @product_details        = @item_page.get_product_details
       @kindle_amount          = @item_page.get_kindle_amount
@@ -35,6 +36,9 @@ describe "Read the details of a product from Amazon" do
 
       # switch to Kindle tab and then get details from that page, then reswitch tab
       @item_page.select_tab("Kindle")
+      expect(@item_page.send_free_sample_button.displayed?).to eq(true)
+
+
       @get_ebook_features     = @item_page.get_ebook_features
       @item_page.select_tab("Paperback")
 
@@ -45,6 +49,9 @@ describe "Read the details of a product from Amazon" do
       # the above variables can also be used to make validations
       expect(@product_details).to include('Language')
       expect(@kindle_amount).to include('$')
+      
+      # If the expected value is known then equality matcher can be used
+      # expect(@kindle_amount).to eq('$40')
     end
   end
 
